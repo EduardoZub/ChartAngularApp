@@ -1,0 +1,4 @@
+<input class="color-picker" 
+	[(colorPicker)]="color" 
+	[style.background]="color"
+	(colorPickerClose)="onChange($event, 'color')"/>

@@ -1,0 +1,29 @@
+<div class="header">
+	<div class="wrapper">
+		<ng-template #dashboardHeader>
+			<div class="header-content flex-row flex-row_align-items flex-wrap">
+				<div class="header-content-item">
+					<h1>{{ title }}</h1>
+				</div>	
+
+				<div class="header-content-item">
+					<span>|</span>
+				</div>
+
+				<div class="header-content-item">
+					<app-selector 
+						[data]="dates" 
+						[selectedOption]="filterByDay"
+						(onChangeOption)="onChange($event)"
+						[label]="label"
+						appSelectorThemeWhite>
+					</app-selector>
+				</div>
+			</div>
+		</ng-template>
+
+		<ng-container
+        	*ngTemplateOutlet="headerTemplate ? headerTemplate: dashboardHeader">
+		</ng-container>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+ <ng-template #newsHeader>
+        <div class="header-content flex-row flex-row_align-items flex-wrap">
+			<div class="header-content-item">
+				<h1>News</h1>
+			</div>
+		</div>
+</ng-template>
+
+<app-header [headerTemplate]="newsHeader"></app-header>
+
+<div class="wrapper relative">
+	<div class="news-content flex-row flex-wrap" *ngIf="preloader; else preloaderBlock">
+		<a 	class="news-block"
+			href="{{ item.url }}" 
+			target="_blank" 
+			*ngFor="let item of newsData">
+
+			<mat-card class="example-card">
+			  <mat-card-header>
+			    <mat-card-title> {{ item.title }} </mat-card-title>
+			    <mat-card-subtitle> {{ item.source.name }} </mat-card-subtitle>
+			  </mat-card-header>
+			  <div class="img-wrap">
+			  	<div class="img-block">
+				  	<img mat-card-image src="{{ item.urlToImage }}" alt="Image not found">
+			  	</div>
+			  </div>
+			  <mat-card-content>
+			    <p>
+			      {{ item.description }}
+			    </p>
+			  </mat-card-content>
+			</mat-card>
+		</a>
+	</div>
+</div>
+
+<ng-template #preloaderBlock>
+	<app-preloader></app-preloader>
+</ng-template>

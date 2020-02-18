@@ -1,0 +1,31 @@
+<div class="selectors flex-row flex-row_align-items flex-wrap" *ngIf="compare; else compareText">
+	<div class="selector">
+		<app-selector 
+			[data]="chartTypes" 
+			[label]="label"
+            [selectedOption]="selectedOption"
+            (onChangeOption)="onChange($event)">
+		</app-selector>
+	</div>
+
+	<div class="selector">
+		<app-color-picker 
+			[color]="colorChart"
+            (changeColor)="onChange($event)"></app-color-picker>
+	</div>
+
+	<div class="btn">
+		<button mat-stroked-button
+			color="colorBtn" 
+			(click)="onCompare(config)">
+			Compare
+		</button>
+	</div>
+</div>
+
+<div [chart]="charts" class="chart-item"></div>
+
+
+<ng-template #compareText>
+	<div class="compare-text">Please add chart to comparing</div>
+</ng-template>

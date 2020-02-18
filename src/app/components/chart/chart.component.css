@@ -1,0 +1,26 @@
+.chart-item {
+	width: 100%;
+} 
+
+.selector {
+	width: fit-content;
+	display: inline-block;
+}
+
+.compare-text {
+	width: 95%;
+    margin: 0 auto;
+	padding: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px dashed #ccc;
+    margin-bottom: 25px;
+}
+
+.selectors {
+	margin-bottom: 20px;
+}
+
+.btn {
+	margin-left: 20px;
+}

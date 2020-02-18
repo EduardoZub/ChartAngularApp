@@ -1,0 +1,19 @@
+.preloader-block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	min-height: 80vh;
+	background-color: #fdfdfe;
+	z-index: 9;
+}
+
+.img-wrap {
+	width: 100%;
+	max-width: 200px;
+}
+
+.img-wrap img {
+	width: 100%;
+}

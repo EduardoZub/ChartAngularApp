@@ -1,0 +1,20 @@
+<app-header 
+	[filterByDay]="filterByDay"
+	(dayBy)="onChangeDay($event)">
+</app-header>
+
+<div class="wrapper relative">
+	<div class="dashboard-content flex-row flex-wrap" *ngIf="preloader; else preloaderBlock">
+		<div *ngFor="let chart of charts" class="chart">
+			<app-chart 
+				[config]="chart"
+				(changedType)="onChange($event)"
+				(onAddSeries)="onAddSeries($event)">
+			</app-chart>
+		</div>
+	</div>
+</div>
+
+<ng-template #preloaderBlock>
+	<app-preloader></app-preloader>
+</ng-template>

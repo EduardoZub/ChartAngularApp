@@ -1,0 +1,13 @@
+<div class="selector">
+	<mat-form-field>
+	  <mat-label>{{ label }}</mat-label>
+	  <mat-select  [(value)]="selected" >
+	    <mat-option
+	    	*ngFor="let item of data" 
+	    	[value]="item.value" 
+	    	(click)="onChange($event.target, 'typeChart')">
+	      {{item.viewValue}}
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field>
+</div>

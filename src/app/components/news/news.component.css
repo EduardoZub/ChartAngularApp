@@ -1,0 +1,154 @@
+.header-content h1 {
+	font-size: 20px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.news-content {
+	width: 100%;
+}
+
+.relative {
+	position: relative;
+}
+
+.news-block {
+	width: 47.9%;
+	text-decoration: none;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.news-block:first-child {
+	flex-basis: 100%;
+	margin-bottom: 50px;
+}
+
+.news-block:first-child .example-card {
+	position: relative;
+	padding: 0;
+}
+
+.news-block:first-child .example-card p {
+	color: #fff;
+    font-size: 20px;
+}
+
+.news-block:first-child .mat-card-content {
+	margin-left: 15px;
+}
+
+.news-block:first-child .mat-card-header {
+	width: 100%;
+    max-width: 340px;
+	position: absolute;
+    bottom: 125px;
+    left: 80px;
+    margin-bottom: 40px;
+    z-index: 99;
+}
+.news-block:first-child .mat-card-header .mat-card-title,
+.news-block:first-child .mat-card-header .mat-card-subtitle {
+	color: #fff;
+}
+
+.news-block:first-child .mat-card-content {
+	position: absolute;
+    z-index: 99;
+    bottom: 80px;
+    left: 80px;
+    width: 100%;
+    max-width: 550px;
+    padding-top: 20px;
+}
+
+.news-block:first-child .img-wrap {
+	position: relative;
+}
+.news-block:first-child .img-wrap::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(231, 48%, 45%, 0.38);
+}
+
+.news-block .img-wrap {
+	width: 100%;
+    height: 415px;
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+    overflow: hidden;
+}
+.news-block:hover {
+	cursor: pointer;
+}
+.news-block .img-wrap .img-block {
+	width: 100%;
+	transform: scale(1);
+	transition: all 2s;
+}
+.news-block:hover .img-wrap .img-block  {
+	transform: scale(1.1);
+	transition: all 2s;
+}
+.news-block:first-child .img-wrap {
+	position: relative;
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.mat-card-header {
+	min-height: 100px;
+}
+
+.mat-card-content {
+	min-height: 50px;
+	margin: 20px 0;
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1024px) {
+	.news-block:first-child .mat-card-header {
+		margin-bottom: 60px;
+	}
+
+	.news-block {
+		width: 100%;
+	}
+	
+	.news-block:first-child .mat-card-content {
+		position: static;
+		color: #000;
+		padding: 10px;
+		padding-bottom: 20px;
+		margin-left: 0;
+	}
+
+	.news-block:first-child .example-card p {
+		color: #000;
+		font-size: 15px;
+		margin-left: 0;
+	}
+
+	.news-block:first-child .mat-card-header {
+		left: 10px;
+	}
+
+	.news-block .img-wrap {
+		height: 253px;
+	}
+}

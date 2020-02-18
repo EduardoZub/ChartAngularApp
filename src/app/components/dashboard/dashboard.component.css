@@ -1,0 +1,26 @@
+.dashboard-content {
+	width: 100%;
+}
+
+.relative {
+	position: relative;
+}
+
+.chart {
+	width: 48%;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.chart:nth-child(2n) {
+	margin-right: 0;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 1024px) {
+	.chart {
+		width: 100%;
+		margin-right: 0;
+	}
+}

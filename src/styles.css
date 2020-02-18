@@ -1,0 +1,116 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+html, body { height: 100%; }
+/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+
+* {
+ 	 -webkit-box-sizing: border-box;
+  	box-sizing: border-box; 
+}
+
+.wrapper {
+	width: 95%;
+	max-width: 1800px;
+	margin: 0 auto;
+}
+
+.app-content {
+	width: 100%;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-row_justify-content {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-row_align-items {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-row_flex-end {
+  align-items: flex-end;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-column_justify-conten {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-column_align-items {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-column_flex-end {
+  align-items: flex-end;
+}
+
+.flex-column_flex-start {
+  align-items: flex-start;
+}
+
+.flex-row_between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+.selector .mat-form-field-wrapper {
+  margin: 20px;
+}
+.white-theme .selector .mat-form-field-wrapper {
+  margin: 0 20px 0 0;
+}
+.white-theme .selector .mat-select-value,
+.white-theme .selector .mat-form-field .mat-select-arrow,
+.white-theme .selector .mat-form-field-label {
+  color: #fff;
+  outline: none;
+}
+
+.white-theme .selector .mat-form-field-appearance-legacy .mat-form-field-underline,
+.white-theme .selector .mat-form-field .mat-form-field-ripple,
+.white-theme .selector .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #fff;
+  outline: none;
+}
+
