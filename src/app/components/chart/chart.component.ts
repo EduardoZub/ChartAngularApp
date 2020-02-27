@@ -14,22 +14,21 @@ import { SeriesI } from '../../models/series';
 export class ChartComponent implements OnInit {
 
   @Input() data;
-  @Input() 
+  @Input()
   set config(dataConf) {
     if (dataConf) {
-      // debugger
       this._config = dataConf;
       this.createChart(this._config, this.data, this._config.getFromField, this.dayBy);
       this.checkCompare(this._config);
     }
-  };
+  }
 
   @Input()
   set dayBy(time) {
     if (time) {
       this.createChart(this._config, this.data, this._config.getFromField, time);
     }
-  };
+  }
 
   @Output() changedType: EventEmitter<any> = new EventEmitter<any>();
   @Output() onAddSeries: EventEmitter<SeriesI> = new EventEmitter<SeriesI>();

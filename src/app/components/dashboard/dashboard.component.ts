@@ -144,7 +144,7 @@ export class DashboardComponent implements OnInit {
     }
 
     private openSnackBar(status: string, chartName: string): void {
-        let message = `${chartName}: ${status} compare`;
+        const message = `${chartName}: ${status} compare`;
         this._snackBar.open(message, null, {
           duration: 2000,
           panelClass: 'cust-theme',
