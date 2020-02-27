@@ -11,6 +11,7 @@ import { routes } from './routes';
 import { AppComponent } from './app.component';
 import { ChartModule } from 'angular-highcharts';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NewsComponent } from './components/news/news.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,7 +21,6 @@ import { PreloaderComponent } from './components/preloader/preloader.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
-import { SelectorThemeWhiteDirective } from './derectives/selector-theme/selector-theme-white.directive';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,7 @@ import { SelectorThemeWhiteDirective } from './derectives/selector-theme/selecto
     PreloaderComponent,
     HeaderTopComponent,
     DashboardComponent,
-    ColorPickerComponent,
-    SelectorThemeWhiteDirective
+    ColorPickerComponent
   ],
   imports: [
     ChartModule,
@@ -43,6 +42,7 @@ import { SelectorThemeWhiteDirective } from './derectives/selector-theme/selecto
     MatButtonModule,
     MatSelectModule,
     HttpClientModule,
+    MatSnackBarModule,
     ColorPickerModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),

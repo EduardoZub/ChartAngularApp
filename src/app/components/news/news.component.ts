@@ -20,8 +20,6 @@ export class NewsComponent implements OnInit {
         delay(2000),
         finalize(() => this.preloader = true),
       )
-      .subscribe((data) => {
-        this.newsData = data.articles;
-      });
+      .subscribe(data => this.newsData = data.articles);
   }
 }

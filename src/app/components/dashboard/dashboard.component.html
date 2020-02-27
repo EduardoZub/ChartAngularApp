@@ -4,10 +4,14 @@
 </app-header>
 
 <div class="wrapper relative">
-	<div class="dashboard-content flex-row flex-wrap" *ngIf="preloader; else preloaderBlock">
-		<div *ngFor="let chart of charts" class="chart">
+	<div 
+		class="dashboard-content flex-row flex-wrap" 
+		*ngIf="preloader; else preloaderBlock">
+		<div *ngFor="let item of config; trackBy: trackByFn" class="chart">
 			<app-chart 
-				[config]="chart"
+				[config]="item"
+				[data]="data"
+				[dayBy]="filterByDay"
 				(changedType)="onChange($event)"
 				(onAddSeries)="onAddSeries($event)">
 			</app-chart>

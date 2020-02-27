@@ -9,7 +9,10 @@
 <app-header [headerTemplate]="newsHeader"></app-header>
 
 <div class="wrapper relative">
-	<div class="news-content flex-row flex-wrap" *ngIf="preloader; else preloaderBlock">
+	<div 
+		class="news-content flex-row flex-wrap" 
+		*ngIf="preloader; else preloaderBlock">
+		
 		<a 	class="news-block"
 			href="{{ item.url }}" 
 			target="_blank" 

@@ -12,21 +12,24 @@ export class CreateChartService {
 
   constructor() { }
 
-  public createChart(_data: ChartI) {
+  public createChart(_dataConfig: ChartI, _chartData, _findBy, _filterBy) {
+    this.getData(_chartData, _dataConfig, _findBy, _filterBy);
+
     let seriesDefault: SeriesI[] = [];
 
-    const {typeChart, chartName, color, unitsFormat, data, time} = _data;
+    const { name, unitsFormat} = _dataConfig;
+    const { typeChart, color, data, time } = _dataConfig.settings;
 
-    if (_data.id == 4) {
-       seriesDefault = _data.dataSeries;
+    if (_dataConfig.id == 4) {
+       seriesDefault = _dataConfig.settings.dataSeries;
 
     } else {
-      seriesDefault = [{name: chartName, data: data, color: color, type: typeChart}];
+      seriesDefault = [{ name: name, data: data, color: color, type: typeChart }];
     }
 
     return new Chart({
         title: {
-           text: chartName
+           text: name
         },
         credits: {
            enabled: false
@@ -43,7 +46,7 @@ export class CreateChartService {
     } as any);
   }
 
-  public getData(arr: object[], item: ChartI, findBy: string, filterBy: string): ChartI {
+  private getData(arr: object[], item: ChartI, findBy: string, filterBy: string): ChartI {
      const byDay: object[] = this.filterByDay(arr, filterBy);
      return this.mapData(byDay, item, findBy);
   }
@@ -53,13 +56,13 @@ export class CreateChartService {
   }
 
   private mapData(arr: any, item: ChartI, findBy: string): ChartI {
-    arr.map(() => {
+    arr.forEach(() => {
       if (findBy) {
-         item.data = arr.map(dataVal => dataVal[findBy][item.typeData]);
+         item.settings.data = arr.map(dataVal => dataVal[findBy][item.typeData]);
       }
    });
 
-   item.time = arr.map(dataTime => moment(dataTime.dt_txt).format('H:m:s'));
+   item.settings.time = arr.map(dataTime => moment(dataTime.dt_txt).format('H:m:s'));
 
    return item;
   }

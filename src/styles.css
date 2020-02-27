@@ -114,3 +114,21 @@ html, body { height: 100%; }
   outline: none;
 }
 
+.cust-theme {
+  background-color: #fff;
+  background-color: #3f51b5b5;
+  color: #fff;
+}
+.checkmark-icon-wrap,
+.btn button .mat-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.checkmark-icon {
+  width: 20px;
+  margin-left: 10px;
+  color: #3f51b5;
+}
+
+

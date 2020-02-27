@@ -11,12 +11,12 @@
 				</div>
 
 				<div class="header-content-item">
-					<app-selector 
+					<app-selector
+						class="white-theme"
 						[data]="dates" 
-						[selectedOption]="filterByDay"
-						(onChangeOption)="onChange($event)"
 						[label]="label"
-						appSelectorThemeWhite>
+						[selectedOption]="filterByDay"
+						(onChangeOption)="onChange($event)">
 					</app-selector>
 				</div>
 			</div>

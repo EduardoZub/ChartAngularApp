@@ -13,15 +13,34 @@ import { SeriesI } from '../../models/series';
 })
 export class ChartComponent implements OnInit {
 
-  @Input() config: ChartI;
+  @Input() data;
+  @Input() 
+  set config(dataConf) {
+    if (dataConf) {
+      // debugger
+      this._config = dataConf;
+      this.createChart(this._config, this.data, this._config.getFromField, this.dayBy);
+      this.checkCompare(this._config);
+    }
+  };
+
+  @Input()
+  set dayBy(time) {
+    if (time) {
+      this.createChart(this._config, this.data, this._config.getFromField, time);
+    }
+  };
+
   @Output() changedType: EventEmitter<any> = new EventEmitter<any>();
   @Output() onAddSeries: EventEmitter<SeriesI> = new EventEmitter<SeriesI>();
 
+  public _config;
   public charts: object;
   public compare: boolean = true;
   public label: string = 'Chart type';
   public selectedOption: string;
   public colorChart: string;
+  public active: boolean;
 
   public chartTypes: SelectorDataI[] = [
     {value: 'line', viewValue: 'line'},
@@ -32,33 +51,37 @@ export class ChartComponent implements OnInit {
   constructor(private _createChart: CreateChartService) { }
 
   ngOnInit() {
-    this.createChart(this.config);
-    this.selectedOption = this.config.typeChart;
-    this.colorChart = this.config.color;
-    this.checkCompare(this.config);
+    this.selectedOption = this._config.settings.typeChart;
+    this.colorChart = this._config.settings.color;
   }
 
   private checkCompare(element: ChartI): void {
-    if (element.chartName == 'Compare') {
+    if (element.comparing) {
+      this.active = true;
+    }
+
+    if (element.name === 'Compare') {
       this.compare = false;
     }
   }
 
-  private createChart(config: ChartI): object {
-    return this.charts = this._createChart.createChart(config);
+  private createChart(config: ChartI, chartData, findBy, filterBy): object {
+    return this.charts = this._createChart.createChart(config, chartData, findBy, filterBy);
   }
 
   public onChange(value: OnChangeDataI): void {
-    this.changedType.emit({ ...this.config, [value.field]: value.value });
+    this._config.settings[value.field] = value.value;
+    this.changedType.emit(this._config);
   }
 
   public onCompare(element: ChartI): void {
     this.onAddSeries.emit({
-       name: element.chartName,
-       data: element.data,
-       type: element.typeChart,
-       color: element.color,
+       name: element.name,
+       data: element.settings.data,
+       type: element.settings.typeChart,
+       color: element.settings.color,
      });
+    this.active = !this.active;
   }
 
 }

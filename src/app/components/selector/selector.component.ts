@@ -22,7 +22,7 @@ export class SelectorComponent implements OnInit {
     this.selected = this.selectedOption;
   }
 
-  public onChange(value: any, field: string) {
+  public onChange(value, field: string): void {
     const changeField: ByDayI = { value: value.innerText, field: field };
     this.onChangeOption.emit(changeField);
   }
